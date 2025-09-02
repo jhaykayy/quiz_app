@@ -8,6 +8,7 @@ class QuizApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Quiz App',
       home: QuizScreen(),
     );
@@ -24,17 +25,17 @@ class _QuizScreenState extends State<QuizScreen> {
     {
       "question": "What is the capital of France?",
       "answers": ["Paris", "London", "Berlin", "Rome"],
-      "correct": "Paris"
+      "correct": "Paris",
     },
     {
       "question": "Which planet is known as the Red Planet?",
       "answers": ["Earth", "Mars", "Jupiter", "Venus"],
-      "correct": "Mars"
+      "correct": "Mars",
     },
     {
       "question": "Who developed Flutter?",
       "answers": ["Microsoft", "Google", "Apple", "Amazon"],
-      "correct": "Google"
+      "correct": "Google",
     },
   ];
 
@@ -67,6 +68,7 @@ class _QuizScreenState extends State<QuizScreen> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
@@ -100,8 +102,10 @@ class ResultScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Your Score: $score / $total",
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+            Text(
+              "Your Score: $score / $total",
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
@@ -111,7 +115,7 @@ class ResultScreen extends StatelessWidget {
                 );
               },
               child: const Text("Restart Quiz"),
-            )
+            ),
           ],
         ),
       ),
